@@ -1,0 +1,27 @@
+docker pull - завантажити образ
+docker images - список образів
+docker rmi - видалення образу
+
+docker run - створення та запуск контейнеру
+docker ps - список активних контейнерів
+docker ps -a - список всіх контейнерів
+docker rm - видалити контейнер
+docker rm $(docker ps -aq) - видалити всі контейнери
+
+docker attach - під'єднати термінал до контейнеру
+docker exec - виконати команду у терміналі
+
+docker start - запустити існуючий контейнер
+docker stop - зупинити існуючий контейнер
+
+-- приклад створення контейнеру постгресу (без \)
+docker run -dit \
+-e POSTGRES_PASSWORD=postgres \
+-e POSTGRES_USER=test \
+-e POSTGRES_DB=docker_db \
+-p 9876:5432 (лівий порт: ваш порт, правий порт: до кого буде підв'язаний ваш порт (постгервський порт у контейнеру)) \
+-v C:\Users\Homei\OneDrive\Документи\Backups\postgres:/var/lib/postgresql/data (лівий шлях: ваш шлях на пк, правий шлях: звідки буде копіюватися інфа при видаленні) \
+--name sql-db-15.3 postgres:alpine
+
+-- створення образу на основі докерфайлу
+docker build -t mock-server:0.0.1 -f Dockerfile-dev .
