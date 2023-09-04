@@ -1,0 +1,29 @@
+# comment
+# https://docs.docker.com/engine/reference/builder/
+
+# створити образ на основі образу node
+# https://docs.docker.com/engine/reference/builder/#from
+FROM node:18-alpine
+
+# виконати команду
+# https://docs.docker.com/engine/reference/builder/#run
+RUN mkdir /server
+
+# змінюємо робочу директорію у контейнері для виконання команд
+# https://docs.docker.com/engine/reference/builder/#workdir
+WORKDIR /server
+
+# копіюємо файли серверу в контейнер (копіює усе окрім того що у докерігнорі)
+# https://docs.docker.com/engine/reference/builder/#copy
+#COPY . /server 
+COPY ./ ./
+
+RUN npm install 
+
+# відкрити порт в контейнері
+# https://docs.docker.com/engine/reference/builder/#expose
+EXPOSE 5000 
+
+# команда для запуску сервера при підйомі контейнеру
+# https://docs.docker.com/engine/reference/builder/#cmd
+CMD [ "npm", "run", "start" ]
