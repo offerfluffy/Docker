@@ -25,3 +25,6 @@ docker run -dit \
 
 -- створення образу на основі докерфайлу
 docker build -t mock-server:0.0.1 -f Dockerfile-dev .
+
+-- запуск образу на основі докерфайлу
+docker run -dit --name server -p 9999:5000 -v ${PWD}:/server:ro mock-server:0.0.3

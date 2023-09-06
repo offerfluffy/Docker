@@ -16,9 +16,9 @@ WORKDIR /server
 # копіюємо файли серверу в контейнер (копіює усе окрім того що у докерігнорі)
 # https://docs.docker.com/engine/reference/builder/#copy
 #COPY . /server 
-COPY ./ ./
+COPY . ./
 
-RUN npm install 
+RUN npm ci 
 
 # відкрити порт в контейнері
 # https://docs.docker.com/engine/reference/builder/#expose
