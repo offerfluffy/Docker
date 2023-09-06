@@ -3,7 +3,7 @@ const app = express();
 
 app.get('/',
   (req, res, next) => {
-    res.send('Hello from container')
+    res.send('Magic')
   }
 )
 
